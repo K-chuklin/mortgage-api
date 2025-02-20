@@ -64,18 +64,6 @@ CREATE DATABASE mortgages_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 EXIT;
 ```
 
-
-Настройте в `.env` параметры базы данных MySQL:
-
-```env
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=mortgages_db
-DB_USERNAME= 
-DB_PASSWORD=
-```
-
 ### 6️⃣ **Сгенерируйте ключ приложения**
 ```bash
 php artisan key:generate
