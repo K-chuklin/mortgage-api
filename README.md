@@ -13,7 +13,7 @@
 
 ### 1️⃣ **Склонируйте репозиторий**
 ```bash
-git clone https://github.com/yourusername/mortgage-app.git
+git clone https://github.com/K-chuklin/mortgage-app.git
 cd mortgage-app
 ```
 
