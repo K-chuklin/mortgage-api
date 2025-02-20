@@ -12,17 +12,20 @@
 ## ⚙️ Установка и развертывание
 
 ### 1️⃣ **Склонируйте репозиторий**
+
 ```bash
 git clone https://github.com/K-chuklin/mortgage-app.git
 cd mortgage-app
 ```
 
 ### 2️⃣ **Установите зависимости**
+
 ```bash
 composer install
 ```
 
 ### 3️⃣ **Создайте .env файл**
+
 ```bash
 cp .env.example .env
 ```
@@ -34,7 +37,7 @@ DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
 DB_DATABASE=mortgages_db
-DB_USERNAME=postgres
+DB_USERNAME=root
 DB_PASSWORD=your_password
 ```
 
@@ -63,6 +66,7 @@ EXIT;
 
 
 Настройте в `.env` параметры базы данных MySQL:
+
 ```env
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
@@ -78,11 +82,13 @@ php artisan key:generate
 ```
 
 ### 7️⃣ **Запустите миграции** (создание таблиц в БД)
+
 ```bash
 php artisan migrate
 ```
 
 ### 8️⃣ **Заполните базу данных 📊 тестовыми данными**
+
 ```bash
 php artisan db:seed
 ```
@@ -92,6 +98,7 @@ php artisan db:seed
 ## ▶️ Запуск проекта
 
 ### 📡 **Локальный сервер**
+
 ```bash
 php artisan serve
 ```
