@@ -47,7 +47,7 @@ php artisan key:generate
 php artisan migrate
 ```
 
-### 6️⃣ **Заполните базу данных тестовыми данными (сидеры)**
+### 6️⃣ **Заполните базу данных тестовыми данными**
 ```bash
 php artisan db:seed
 ```
