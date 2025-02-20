@@ -3,16 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\MortgageController as AdminMortgageController;
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
-|
-*/
+use App\Http\Controllers\Public\MortgageController as PublicMortgageController;
+
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
@@ -20,4 +12,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::prefix('admin')->group(function () {
     Route::apiResource('mortgages', AdminMortgageController::class);
+});
+
+Route::prefix('public')->group(function () {
+    Route::get('mortgages', [PublicMortgageController::class, 'index']);
+    Route::get('mortgages/{id}', [PublicMortgageController::class, 'show']);
 });
