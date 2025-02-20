@@ -2,64 +2,56 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Mortgage;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class MortgageController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        return response()->json(Mortgage::all());
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'title' => 'required|string',
+            'percent' => 'required|integer|max:40',
+            'min_first_payment' => 'required|integer|max:98',
+            'max_price' => 'required|numeric',
+            'min_price' => 'required|numeric',
+            'min_term' => 'required|integer',
+            'max_term' => 'required|integer'
+        ]);
+
+        $mortgage = Mortgage::create($validated);
+        return response()->json($mortgage, 201);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function show(Mortgage $mortgage)
     {
-        //
+        return response()->json($mortgage);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function update(Request $request, Mortgage $mortgage)
     {
-        //
+        $mortgage->update($request->validate([
+            'title' => 'string',
+            'percent' => 'integer|max:40',
+            'min_first_payment' => 'integer|max:98',
+            'max_price' => 'numeric',
+            'min_price' => 'numeric',
+            'min_term' => 'integer',
+            'max_term' => 'integer'
+        ]));
+
+        return response()->json($mortgage);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function destroy(Mortgage $mortgage)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        $mortgage->delete();
+        return response()->json(null, 204);
     }
 }
