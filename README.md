@@ -14,7 +14,7 @@
 ### 1️⃣ **Склонируйте репозиторий**
 
 ```bash
-git clone https://github.com/K-chuklin/mortgage-app.git
+git clone https://github.com/K-chuklin/mortgage-api.git
 cd mortgage-app
 ```
 
