@@ -76,7 +76,8 @@ class MortgageController extends Controller
             'is_active' => 'nullable|boolean'
         ]));
 
-        $validated['is_active'] = $request->has('is_active');
+        $validated['is_active'] = $request->has('is_active') ? true : false;
+        $mortgage->update($validated);
 
         return redirect()->route('admin.mortgages.index')->with('success', 'Ипотека обновлена.');
     }
