@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Список ипотек')
+
 @section('content')
 <div class="card mt-4">
     <div class="card-body">
