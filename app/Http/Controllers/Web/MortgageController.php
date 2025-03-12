@@ -47,7 +47,6 @@ class MortgageController extends Controller
             'min_price' => 'required|numeric',
             'min_term' => 'required|integer',
             'max_term' => 'required|integer',
-            'max_term' => 'required|integer',
         ]);
 
         Mortgage::create($validated);
